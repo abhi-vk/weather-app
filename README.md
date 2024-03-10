@@ -1,5 +1,6 @@
 To run the Weather App project, you'll need to follow these steps:
-First you need to clone this repo after cloning follow the velow steps
+First you need to clone this repo using - https://github.com/abhi-vk/weather-app.git
+  After cloning follow the below steps
 1. Backend Setup:
    - Ensure you have Python installed on your system.
    - Install Flask and other required Python packages using pip. You can do this by navigating to the backend directory in your terminal and running:
