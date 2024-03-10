@@ -1,0 +1,85 @@
+/* src/App.css */
+
+.App {
+  background: linear-gradient(to right,#a16a8e, #7c4369, #913664);
+  background-blend-mode: lighten;
+  color: #000000;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+} 
+
+ .text-center{
+  color: white;
+}
+h3,ul{
+  color: rgb(255, 255, 255);
+  text-align: center;
+} 
+
+.weather-card {
+  background:#343a40;
+  padding: 20px;
+  color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* App.css */
+
+/* Add animation to the background gradient */
+.weather-card {
+  animation: gradientAnimation 10s linear infinite alternate;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+.selected-city {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #424242;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.selected-city button {
+  margin-left: 10px;
+}
+
+.selected-city button:hover {
+  background-color: #e74c3c;
+}
+
+.weather-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.weather-details {
+  flex: 1;
+}
+
+.weather-info {
+  margin-bottom: 10px;
+}
+
+.weather-info div {
+  margin-bottom: 5px;
+}
+
+.weather-icon img {
+  width: 100px; /* Adjust the width as needed */
+}

@@ -1,0 +1,8 @@
+body {
+  background: linear-gradient(to right, #f3a0ca, #b56785,rgb(150, 56, 103), #70083e); /* Gradient background */
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  margin-top: 50px;
+}
