@@ -9,7 +9,7 @@ const TransparentNavbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Check if the user is logged in (you need to implement this logic)
+    // Check if the user is logged in 
     const userIsLoggedIn = localStorage.getItem('isLoggedIn');
     setIsLoggedIn(userIsLoggedIn === 'true');
   }, []);
