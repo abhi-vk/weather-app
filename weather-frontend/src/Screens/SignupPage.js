@@ -1,10 +1,10 @@
 // SignupPage.js
 import React, { useState } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
+import { Link, useNavigate } from 'react-router-dom'; 
 
 const SignupPage = () => {
-  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+  const navigate = useNavigate(); 
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -27,7 +27,7 @@ const SignupPage = () => {
       if (response.ok) {
         console.log('User signed up successfully');
         // Redirect to home page after successful signup
-        navigate('/'); // Use navigate('/') instead of history.push('/')
+        navigate('/'); 
       } else {
         console.error('Signup failed');
         // Handle signup error
