@@ -46,7 +46,7 @@ const PersonalizedAlerts = () => {
     setAlertMessage(`You will be alerted in the future for conditions set in ${selectedCity}`);
     setShowAlert(true);
 
-    // Hide the alert message after 3 seconds
+    
     setTimeout(() => {
       setShowAlert(false);
       setAlertMessage('');
