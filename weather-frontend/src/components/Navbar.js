@@ -9,14 +9,14 @@ const TransparentNavbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Check if the user is logged in 
-    const userIsLoggedIn = localStorage.getItem('isLoggedIn');
-    setIsLoggedIn(userIsLoggedIn === 'true');
+    // Check if the JWT token exists in localStorage
+    const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token); // Set isLoggedIn to true if token exists
   }, []);
 
   const handleLogout = () => {
-    // Perform logout action here (e.g., clear local storage, reset state, etc.)
-    localStorage.removeItem('isLoggedIn');
+    // Perform logout action here: remove the JWT token from localStorage
+    localStorage.removeItem('token');
     setIsLoggedIn(false);
     // Redirect to login page after logout
     navigate('/login');
@@ -40,7 +40,7 @@ const TransparentNavbar = () => {
           {isLoggedIn ? (
             <>
               <Link to="/profile" className="nav-link">
-                <FontAwesomeIcon icon={faUserCircle} size="2x"  className="mr-2" />
+                <FontAwesomeIcon icon={faUserCircle} size="2x" className="mr-2" />
               </Link>
               <Button variant="outline-light" onClick={handleLogout} className="mr-2">
                 <FontAwesomeIcon icon={faSignOutAlt} className="mr-1" />
