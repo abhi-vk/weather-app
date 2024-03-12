@@ -1,4 +1,3 @@
-// LoginPage.js
 import React, { useState } from 'react';
 import { Container, Form, Button, Row, Col, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,7 +9,7 @@ const LoginPage = () => {
     password: ''
   });
   const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState(''); // State variable to hold success message
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,19 +20,17 @@ const LoginPage = () => {
     try {
       const response = await fetch('http://localhost:5000/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
+      const data = await response.json();
       if (response.ok) {
-        console.log('User logged in successfully');
-        localStorage.setItem('isLoggedIn', 'true');
-        setSuccessMessage('Logged in successfully'); // Set success message
+        // Store JWT token in localStorage
+        localStorage.setItem('token', data.access_token);
+        setSuccessMessage('Logged in successfully');
         navigate('/');
       } else {
-        console.error('Login failed');
-        setErrorMessage('Invalid username or password');
+        setErrorMessage(data.error);
       }
     } catch (error) {
       console.error('Error:', error);
@@ -50,7 +47,7 @@ const LoginPage = () => {
             <p>Welcome back!</p>
           </div>
           {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-          {successMessage && <Alert variant="success">{successMessage}</Alert>} {/* Render success message if present */}
+          {successMessage && <Alert variant="success">{successMessage}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
               <Form.Label>Username</Form.Label>
